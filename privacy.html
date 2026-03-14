@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — AffiliIQ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f7f6fb; --surface: #ffffff; --border: #e2dff0;
+      --accent: #7c5cfc; --accent2: #5a3fd4;
+      --text: #1a1730; --muted: #6b6490; --soft: #f0eeff; --table-alt: #faf9ff;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.75; font-size: 16px; }
+    .wrap { max-width: 740px; margin: 0 auto; padding: 0 24px 80px; }
+    header { padding: 52px 0 44px; border-bottom: 2px solid var(--border); margin-bottom: 48px; }
+    .logo { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; color: var(--text); letter-spacing: -0.5px; margin-bottom: 24px; display: inline-block; }
+    .logo span { color: var(--accent); }
+    h1 { font-family: 'Syne', sans-serif; font-size: clamp(26px, 5vw, 38px); font-weight: 800; line-height: 1.15; letter-spacing: -1px; color: var(--text); margin-bottom: 12px; }
+    .meta { display: flex; gap: 8px 24px; flex-wrap: wrap; margin-top: 18px; }
+    .meta-item { font-size: 13px; color: var(--muted); }
+    .meta-item span { color: var(--accent2); font-weight: 500; }
+    .toc { background: var(--soft); border: 1px solid var(--border); border-radius: 12px; padding: 22px 26px; margin-bottom: 48px; }
+    .toc-title { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .toc ol { list-style: none; counter-reset: toc; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; }
+    @media (max-width: 520px) { .toc ol { grid-template-columns: 1fr; } }
+    .toc li { counter-increment: toc; font-size: 14px; }
+    .toc li::before { content: counter(toc, decimal-leading-zero) ". "; color: var(--accent); font-weight: 600; font-size: 12px; margin-right: 3px; }
+    .toc a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
+    .toc a:hover { color: var(--accent2); }
+    section { margin-bottom: 48px; scroll-margin-top: 24px; }
+    .section-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    h2 { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    p { color: #3d3660; margin-bottom: 14px; font-size: 15px; font-weight: 400; line-height: 1.75; }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--text); font-weight: 600; }
+    .data-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 14px; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .data-table thead tr { background: var(--soft); }
+    .data-table th { padding: 11px 14px; text-align: left; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--accent2); border-bottom: 1px solid var(--border); }
+    .data-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); color: #3d3660; vertical-align: top; line-height: 1.6; }
+    .data-table td strong { color: var(--text); font-weight: 600; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:nth-child(even) td { background: var(--table-alt); }
+    .highlight { background: var(--soft); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; padding: 14px 18px; margin: 18px 0; }
+    .highlight p { font-size: 14px; color: #3d3660; margin-bottom: 0; }
+    .contact-box { background: var(--soft); border: 1px solid var(--border); border-radius: 12px; padding: 24px 28px; margin-top: 16px; }
+    .contact-box p { margin-bottom: 5px; font-size: 15px; color: #3d3660; }
+    .contact-box p:first-child { color: var(--text); font-weight: 600; }
+    .contact-email { display: inline-block; margin-top: 10px; color: var(--accent); font-weight: 500; font-size: 16px; text-decoration: none; border-bottom: 2px solid rgba(124,92,252,0.3); padding-bottom: 1px; transition: border-color 0.15s, color 0.15s; }
+    .contact-email:hover { color: var(--accent2); border-color: var(--accent); }
+    footer { border-top: 1px solid var(--border); padding-top: 28px; margin-top: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    footer p { font-size: 13px; color: var(--muted); margin: 0; }
+    .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 15px; color: var(--text); }
+    .footer-logo span { color: var(--accent); }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">Affili<span>IQ</span></div>
+    <h1>Privacy Policy</h1>
+    <p style="color:var(--muted);font-size:15px;margin-top:6px;">How we collect, use, and protect your data.</p>
+    <div class="meta">
+      <div class="meta-item">Effective date <span>March 12, 2026</span></div>
+      <div class="meta-item">&middot; Last updated <span>March 12, 2026</span></div>
+      <div class="meta-item">&middot; Operated by <span>The Pe&#241;a Home LLC</span></div>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Table of contents">
+    <div class="toc-title">Contents</div>
+    <ol>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#data-collected">Data We Collect</a></li>
+      <li><a href="#how-we-use">How We Use Your Data</a></li>
+      <li><a href="#storage">Data Storage &amp; Security</a></li>
+      <li><a href="#sharing">Data Sharing</a></li>
+      <li><a href="#retention">Data Retention</a></li>
+      <li><a href="#rights">Your Rights</a></li>
+      <li><a href="#children">Children's Privacy</a></li>
+      <li><a href="#changes">Changes to This Policy</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ol>
+  </nav>
+
+  <section id="overview">
+    <div class="section-label">01</div>
+    <h2>Overview</h2>
+    <p>AffiliIQ ("the App", "we", "us", "our") is a mobile analytics and productivity tool for TikTok Shop affiliates, operated by <strong>The Pe&#241;a Home LLC</strong>, a limited liability company registered in California, United States.</p>
+    <p>This Privacy Policy explains what data we collect when you use the App, why we collect it, how it is stored and protected, and what rights you have over it. By using the App you agree to the practices described in this policy.</p>
+    <div class="highlight">
+      <p><strong>Plain English summary:</strong> We only collect TikTok data that you explicitly authorise us to access. We use it to power the App's features for you personally. We do not sell it, share it with advertisers, or use it for any purpose other than operating the App.</p>
+    </div>
+  </section>
+
+  <section id="data-collected">
+    <div class="section-label">02</div>
+    <h2>Data We Collect</h2>
+    <p>We collect two categories of data: data you provide directly, and data retrieved from TikTok's API on your behalf after you grant permission via TikTok's OAuth login.</p>
+    <table class="data-table">
+      <thead>
+        <tr><th>Data Type</th><th>Source</th><th>Why We Need It</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>TikTok account identity</strong><br>Username, profile ID, display name</td>
+          <td>TikTok OAuth</td>
+          <td>To create and identify your account in the App</td>
+        </tr>
+        <tr>
+          <td><strong>Video performance data</strong><br>Views, CTR, watch time, conversion rate, GMV, commission per video</td>
+          <td>TikTok Creator API</td>
+          <td>To power Video Analytics and Dead Links features</td>
+        </tr>
+        <tr>
+          <td><strong>Commission &amp; order data</strong><br>GMV by period, commission earned, orders, settlement status</td>
+          <td>TikTok Affiliate API</td>
+          <td>To power the Commission Goal Calculator and Financial tab</td>
+        </tr>
+        <tr>
+          <td><strong>Affiliate links &amp; ad codes</strong><br>Link URLs, product names, shop names, ad codes, expiry dates</td>
+          <td>TikTok Shop API</td>
+          <td>To power the Ad Code Manager and Dead Links features</td>
+        </tr>
+        <tr>
+          <td><strong>Financial data</strong><br>Withdrawal history, fees, settlement dates</td>
+          <td>TikTok Finance API</td>
+          <td>To power the Financial tab</td>
+        </tr>
+        <tr>
+          <td><strong>Manually entered data</strong><br>Historical GMV and performance figures you enter yourself</td>
+          <td>You, directly</td>
+          <td>To supplement API data in the Commission Calculator</td>
+        </tr>
+        <tr>
+          <td><strong>App settings &amp; preferences</strong><br>Currency, sign-off name, notification preferences</td>
+          <td>You, directly</td>
+          <td>To personalise your App experience</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>We do <strong>not</strong> collect your TikTok password. Authentication is handled entirely by TikTok via OAuth 2.0 — we receive an access token only, which we store encrypted on our servers.</p>
+  </section>
+
+  <section id="how-we-use">
+    <div class="section-label">03</div>
+    <h2>How We Use Your Data</h2>
+    <p>We use the data we collect solely to operate and improve the App for you. Specifically:</p>
+    <p><strong>To power App features</strong> — All TikTok data retrieved via the API is used exclusively to display analytics, calculate commission projections, surface dead links, and generate ad code exports within your personal App account.</p>
+    <p><strong>To sync your data</strong> — We run a daily background sync to keep your performance data up to date, and a monthly sync on the 3rd business day of each month to finalise the previous month's figures.</p>
+    <p><strong>To send notifications</strong> — If you enable notifications, we use your data to generate alerts such as expiring ad codes, commission milestones, and data sync confirmations.</p>
+    <p><strong>To improve the App</strong> — We may use anonymised, aggregated usage data (not your TikTok performance data) to understand how features are used and to fix bugs. This data cannot be traced back to you.</p>
+    <p>We do <strong>not</strong> use your data for advertising, profiling, or any purpose beyond operating the App on your behalf.</p>
+  </section>
+
+  <section id="storage">
+    <div class="section-label">04</div>
+    <h2>Data Storage &amp; Security</h2>
+    <p>Your data is stored on secure servers hosted by reputable cloud infrastructure providers. All data is encrypted at rest and in transit using industry-standard TLS/SSL encryption.</p>
+    <p>Your TikTok OAuth access token is stored encrypted server-side and is never exposed to the client application or any third party. All API calls to TikTok are proxied through our backend — the App itself never communicates directly with TikTok's API.</p>
+    <p>We implement access controls, regular security reviews, and industry-standard practices to protect your data. In the event of a data breach that affects your personal data, we will notify you within 72 hours of becoming aware of it.</p>
+  </section>
+
+  <section id="sharing">
+    <div class="section-label">05</div>
+    <h2>Data Sharing</h2>
+    <p><strong>We do not sell your data.</strong> We do not share your personal data or your TikTok performance data with advertisers, data brokers, or any third party for commercial purposes.</p>
+    <p><strong>Service providers</strong> — We use third-party services to operate the App, including cloud hosting and payment processing (Stripe). These providers access only the data necessary to perform their specific service and are contractually prohibited from using it for any other purpose.</p>
+    <p><strong>Legal requirements</strong> — We may disclose data if required to do so by law, regulation, or valid legal process such as a court order or subpoena.</p>
+    <p><strong>Business transfer</strong> — In the event of a merger, acquisition, or sale of The Pe&#241;a Home LLC, your data may be transferred to the acquiring entity. We will notify you before your data becomes subject to a different privacy policy.</p>
+  </section>
+
+  <section id="retention">
+    <div class="section-label">06</div>
+    <h2>Data Retention</h2>
+    <p>We retain your data for as long as your account is active. Historical performance data (GMV, commission, video metrics) is retained indefinitely to power the Commission Calculator's historical archive feature — this is core to the App's functionality.</p>
+    <p>If you delete your account, we will delete all personal data and TikTok performance data associated with your account within 30 days, except where we are required to retain it for legal or regulatory reasons.</p>
+    <p>You can request deletion of your data at any time without deleting your account by contacting us at the email address below.</p>
+  </section>
+
+  <section id="rights">
+    <div class="section-label">07</div>
+    <h2>Your Rights</h2>
+    <p>Depending on where you are located, you may have the following rights:</p>
+    <p><strong>Access</strong> — You have the right to request a copy of the personal data we hold about you.</p>
+    <p><strong>Correction</strong> — You have the right to request correction of inaccurate data. Note that TikTok-synced data reflects what TikTok provides — to correct it at source you would need to contact TikTok directly.</p>
+    <p><strong>Deletion</strong> — You have the right to request deletion of your personal data. See Data Retention above.</p>
+    <p><strong>Portability</strong> — You have the right to request your data in a structured, machine-readable format. The App's CSV export features provide this for your performance data directly.</p>
+    <p><strong>Withdraw consent</strong> — You can revoke AffiliIQ's access to your TikTok data at any time through TikTok's connected apps settings. This will prevent further data syncing but will not delete data already stored.</p>
+    <p>To exercise any of these rights, contact us at the address in the Contact section below. We will respond within 30 days.</p>
+    <div class="highlight">
+      <p><strong>California residents (CCPA):</strong> You have the right to know what personal information we collect, to request deletion, and to opt out of the sale of personal information. We do not sell personal information. To exercise your rights, contact us at privacy@affiliiq.com.</p>
+    </div>
+  </section>
+
+  <section id="children">
+    <div class="section-label">08</div>
+    <h2>Children's Privacy</h2>
+    <p>AffiliIQ is intended for use by TikTok Shop affiliates and is not directed at children under the age of 13. We do not knowingly collect personal data from children under 13. If we become aware that we have collected personal data from a child under 13, we will delete it immediately. If you believe we may have collected such data, please contact us.</p>
+  </section>
+
+  <section id="changes">
+    <div class="section-label">09</div>
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time as the App evolves. When we make material changes we will update the "Last updated" date at the top of this page and, where appropriate, notify you via the App or by email.</p>
+    <p>Your continued use of the App after any changes constitutes your acceptance of the updated policy. We encourage you to review this page periodically.</p>
+  </section>
+
+  <section id="contact">
+    <div class="section-label">10</div>
+    <h2>Contact Us</h2>
+    <p>If you have any questions about this Privacy Policy, want to exercise your data rights, or need to report a concern, please contact us:</p>
+    <div class="contact-box">
+      <p>The Pe&#241;a Home LLC</p>
+      <p>Operating AffiliIQ</p>
+      <p>24060 Venture Way, Corona, CA 92883</p>
+      <p>United States</p>
+      <a href="mailto:privacy@affiliiq.com" class="contact-email">privacy@affiliiq.com</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Affili<span>IQ</span></div>
+    <p>&copy; 2026 The Pe&#241;a Home LLC. All rights reserved.</p>
+  </footer>
+</div>
+</body>
+</html>
