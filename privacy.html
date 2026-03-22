@@ -5,24 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — AffiliIQ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #f7f6fb; --surface: #ffffff; --border: #e2dff0;
-      --accent: #7c5cfc; --accent2: #5a3fd4;
-      --text: #1a1730; --muted: #6b6490; --soft: #f0eeff; --table-alt: #faf9ff;
+      --bg: #0a1628;
+      --surface: #0f2040;
+      --border: rgba(14,165,233,0.2);
+      --accent: #0ea5e9;
+      --accent2: #38bdf8;
+      --text: #e0f2fe;
+      --muted: #7ab8d4;
+      --soft: rgba(14,165,233,0.08);
+      --table-alt: rgba(14,165,233,0.04);
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.75; font-size: 16px; }
     .wrap { max-width: 740px; margin: 0 auto; padding: 0 24px 80px; }
-    header { padding: 52px 0 44px; border-bottom: 2px solid var(--border); margin-bottom: 48px; }
-    .logo { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; color: var(--text); letter-spacing: -0.5px; margin-bottom: 24px; display: inline-block; }
+
+    header { padding: 52px 0 44px; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+    .logo { font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 700; color: var(--text); letter-spacing: 0; margin-bottom: 24px; display: inline-block; }
     .logo span { color: var(--accent); }
-    h1 { font-family: 'Syne', sans-serif; font-size: clamp(26px, 5vw, 38px); font-weight: 800; line-height: 1.15; letter-spacing: -1px; color: var(--text); margin-bottom: 12px; }
+    h1 { font-family: 'Syne', sans-serif; font-size: clamp(24px, 4vw, 34px); font-weight: 700; line-height: 1.2; letter-spacing: 0; color: var(--text); margin-bottom: 12px; }
     .meta { display: flex; gap: 8px 24px; flex-wrap: wrap; margin-top: 18px; }
     .meta-item { font-size: 13px; color: var(--muted); }
     .meta-item span { color: var(--accent2); font-weight: 500; }
+
     .toc { background: var(--soft); border: 1px solid var(--border); border-radius: 12px; padding: 22px 26px; margin-bottom: 48px; }
     .toc-title { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
     .toc ol { list-style: none; counter-reset: toc; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; }
@@ -31,29 +39,34 @@
     .toc li::before { content: counter(toc, decimal-leading-zero) ". "; color: var(--accent); font-weight: 600; font-size: 12px; margin-right: 3px; }
     .toc a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
     .toc a:hover { color: var(--accent2); }
+
     section { margin-bottom: 48px; scroll-margin-top: 24px; }
     .section-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
-    h2 { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
-    p { color: #3d3660; margin-bottom: 14px; font-size: 15px; font-weight: 400; line-height: 1.75; }
+    h2 { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: 0; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    p { color: var(--muted); margin-bottom: 14px; font-size: 15px; font-weight: 400; line-height: 1.75; }
     p:last-child { margin-bottom: 0; }
     strong { color: var(--text); font-weight: 600; }
+
     .data-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 14px; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
     .data-table thead tr { background: var(--soft); }
     .data-table th { padding: 11px 14px; text-align: left; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--accent2); border-bottom: 1px solid var(--border); }
-    .data-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); color: #3d3660; vertical-align: top; line-height: 1.6; }
+    .data-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); color: var(--muted); vertical-align: top; line-height: 1.6; }
     .data-table td strong { color: var(--text); font-weight: 600; }
     .data-table tr:last-child td { border-bottom: none; }
     .data-table tr:nth-child(even) td { background: var(--table-alt); }
+
     .highlight { background: var(--soft); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; padding: 14px 18px; margin: 18px 0; }
-    .highlight p { font-size: 14px; color: #3d3660; margin-bottom: 0; }
-    .contact-box { background: var(--soft); border: 1px solid var(--border); border-radius: 12px; padding: 24px 28px; margin-top: 16px; }
-    .contact-box p { margin-bottom: 5px; font-size: 15px; color: #3d3660; }
+    .highlight p { font-size: 14px; color: var(--muted); margin-bottom: 0; }
+
+    .contact-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px 28px; margin-top: 16px; }
+    .contact-box p { margin-bottom: 5px; font-size: 15px; color: var(--muted); }
     .contact-box p:first-child { color: var(--text); font-weight: 600; }
-    .contact-email { display: inline-block; margin-top: 10px; color: var(--accent); font-weight: 500; font-size: 16px; text-decoration: none; border-bottom: 2px solid rgba(124,92,252,0.3); padding-bottom: 1px; transition: border-color 0.15s, color 0.15s; }
+    .contact-email { display: inline-block; margin-top: 10px; color: var(--accent); font-weight: 500; font-size: 16px; text-decoration: none; border-bottom: 2px solid rgba(14,165,233,0.3); padding-bottom: 1px; transition: border-color 0.15s, color 0.15s; }
     .contact-email:hover { color: var(--accent2); border-color: var(--accent); }
+
     footer { border-top: 1px solid var(--border); padding-top: 28px; margin-top: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
     footer p { font-size: 13px; color: var(--muted); margin: 0; }
-    .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 15px; color: var(--text); }
+    .footer-logo { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; color: var(--text); letter-spacing: 0; }
     .footer-logo span { color: var(--accent); }
   </style>
 </head>
@@ -102,21 +115,25 @@
     <p>We collect two categories of data: data you provide directly, and data retrieved from TikTok's API on your behalf after you grant permission via TikTok's OAuth login.</p>
     <table class="data-table">
       <thead>
-        <tr><th>Data Type</th><th>Source</th><th>Why We Need It</th></tr>
+        <tr>
+          <th>Data Type</th>
+          <th>Source</th>
+          <th>Purpose</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>TikTok account identity</strong><br>Username, profile ID, display name</td>
+          <td><strong>TikTok account info</strong><br>Username, profile picture, account ID</td>
           <td>TikTok OAuth</td>
-          <td>To create and identify your account in the App</td>
+          <td>To identify your account and personalise the App</td>
         </tr>
         <tr>
-          <td><strong>Video performance data</strong><br>Views, CTR, watch time, conversion rate, GMV, commission per video</td>
-          <td>TikTok Creator API</td>
-          <td>To power Video Analytics and Dead Links features</td>
+          <td><strong>Video performance data</strong><br>Views, impressions, clicks, conversion rates, GMV per video</td>
+          <td>TikTok Affiliate API</td>
+          <td>To power the Video Analytics and Commission Calculator features</td>
         </tr>
         <tr>
-          <td><strong>Commission &amp; order data</strong><br>GMV by period, commission earned, orders, settlement status</td>
+          <td><strong>Commission &amp; earnings data</strong><br>Commission amounts, rates, settlement status, withdrawal history</td>
           <td>TikTok Affiliate API</td>
           <td>To power the Commission Goal Calculator and Financial tab</td>
         </tr>
@@ -192,7 +209,7 @@
     <p><strong>Withdraw consent</strong> — You can revoke AffiliIQ's access to your TikTok data at any time through TikTok's connected apps settings. This will prevent further data syncing but will not delete data already stored.</p>
     <p>To exercise any of these rights, contact us at the address in the Contact section below. We will respond within 30 days.</p>
     <div class="highlight">
-      <p><strong>California residents (CCPA):</strong> You have the right to know what personal information we collect, to request deletion, and to opt out of the sale of personal information. We do not sell personal information. To exercise your rights, contact us at privacy@affiliiq.com.</p>
+      <p><strong>California residents (CCPA):</strong> You have the right to know what personal information we collect, to request deletion, and to opt out of the sale of personal information. We do not sell personal information. To exercise your rights, contact us at <a href="mailto:privacy@affiliiq.com" style="color:var(--accent2);">privacy@affiliiq.com</a>.</p>
     </div>
   </section>
 
@@ -226,6 +243,7 @@
     <div class="footer-logo">Affili<span>IQ</span></div>
     <p>&copy; 2026 The Pe&#241;a Home LLC. All rights reserved.</p>
   </footer>
+
 </div>
 </body>
 </html>
