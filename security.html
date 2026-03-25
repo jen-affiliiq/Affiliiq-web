@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Information Security Policy — AffiliIQ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a1628;
+      --surface: #0f2040;
+      --border: rgba(14,165,233,0.2);
+      --accent: #0ea5e9;
+      --accent2: #38bdf8;
+      --text: #e0f2fe;
+      --muted: #7ab8d4;
+      --soft: rgba(14,165,233,0.08);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.75; font-size: 16px; }
+    .wrap { max-width: 740px; margin: 0 auto; padding: 0 24px 80px; }
+    header { padding: 52px 0 44px; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+    .logo { font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 700; color: var(--text); letter-spacing: 0; margin-bottom: 24px; display: inline-block; text-decoration: none; }
+    .logo span { color: var(--accent); }
+    h1 { font-family: 'Syne', sans-serif; font-size: clamp(24px, 4vw, 34px); font-weight: 700; line-height: 1.2; letter-spacing: 0; color: var(--text); margin-bottom: 12px; }
+    .meta { display: flex; gap: 8px 24px; flex-wrap: wrap; margin-top: 18px; }
+    .meta-item { font-size: 13px; color: var(--muted); }
+    .meta-item span { color: var(--accent2); font-weight: 500; }
+    .toc { background: var(--soft); border: 1px solid var(--border); border-radius: 12px; padding: 22px 26px; margin-bottom: 48px; }
+    .toc-title { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .toc ol { list-style: none; counter-reset: toc; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; }
+    @media (max-width: 520px) { .toc ol { grid-template-columns: 1fr; } }
+    .toc li { counter-increment: toc; font-size: 14px; }
+    .toc li::before { content: counter(toc, decimal-leading-zero) ". "; color: var(--accent); font-weight: 600; font-size: 12px; margin-right: 3px; }
+    .toc a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
+    .toc a:hover { color: var(--accent2); }
+    section { margin-bottom: 48px; scroll-margin-top: 24px; }
+    .section-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    h2 { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: 0; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    p { color: var(--muted); margin-bottom: 14px; font-size: 15px; line-height: 1.75; }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--text); font-weight: 600; }
+    ul { margin: 12px 0 14px 20px; }
+    ul li { color: var(--muted); font-size: 15px; line-height: 1.75; margin-bottom: 6px; }
+    .highlight { background: var(--soft); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; padding: 14px 18px; margin: 18px 0; }
+    .highlight p { font-size: 14px; color: var(--muted); margin-bottom: 0; }
+    .contact-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px 28px; margin-top: 16px; }
+    .contact-box p { margin-bottom: 5px; font-size: 15px; color: var(--muted); }
+    .contact-box p:first-child { color: var(--text); font-weight: 600; }
+    footer { border-top: 1px solid var(--border); padding-top: 28px; margin-top: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    footer p { font-size: 13px; color: var(--muted); margin: 0; }
+    .footer-logo { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; color: var(--text); }
+    .footer-logo span { color: var(--accent); }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a href="/" class="logo">Affili<span>IQ</span></a>
+    <h1>Information Security Policy</h1>
+    <p style="color:var(--muted);font-size:15px;margin-top:6px;">How we protect our systems, data, and users.</p>
+    <div class="meta">
+      <div class="meta-item">Effective date <span>March 12, 2026</span></div>
+      <div class="meta-item">&middot; Last updated <span>March 12, 2026</span></div>
+      <div class="meta-item">&middot; Operated by <span>The Pe&#241;a Home LLC</span></div>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Table of contents">
+    <div class="toc-title">Contents</div>
+    <ol>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#scope">Scope</a></li>
+      <li><a href="#data-classification">Data Classification</a></li>
+      <li><a href="#access-control">Access Control</a></li>
+      <li><a href="#encryption">Encryption & Transmission</a></li>
+      <li><a href="#infrastructure">Infrastructure Security</a></li>
+      <li><a href="#third-party">Third Party Vendors</a></li>
+      <li><a href="#incident">Incident Response</a></li>
+      <li><a href="#retention">Data Retention & Disposal</a></li>
+      <li><a href="#compliance">Compliance & Review</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </nav>
+
+  <section id="overview">
+    <div class="section-label">01</div>
+    <h2>Overview</h2>
+    <p>The Pe&#241;a Home LLC ("we", "us", "our"), operator of the AffiliIQ mobile application, is committed to maintaining the security, confidentiality, integrity, and availability of all data we handle — including user data retrieved from TikTok's APIs and data provided directly by users of the App.</p>
+    <p>This Information Security Policy describes the practices, controls, and standards we apply to protect our systems and the data entrusted to us. It applies to all personnel, contractors, and systems involved in the operation of AffiliIQ.</p>
+    <div class="highlight">
+      <p><strong>Our commitment:</strong> We treat security as a core responsibility, not an afterthought. User data is handled with the same care we would want applied to our own personal information.</p>
+    </div>
+  </section>
+
+  <section id="scope">
+    <div class="section-label">02</div>
+    <h2>Scope</h2>
+    <p>This policy applies to:</p>
+    <ul>
+      <li>All systems used to develop, operate, and maintain the AffiliIQ application</li>
+      <li>All user data collected, processed, or stored by AffiliIQ</li>
+      <li>All personnel and contractors with access to AffiliIQ systems or data</li>
+      <li>All third-party services and APIs integrated with AffiliIQ</li>
+    </ul>
+  </section>
+
+  <section id="data-classification">
+    <div class="section-label">03</div>
+    <h2>Data Classification</h2>
+    <p>We classify data into the following categories, each with corresponding handling requirements:</p>
+    <p><strong>Highly Sensitive:</strong> TikTok OAuth tokens, API credentials, payment information, and authentication keys. These are encrypted at rest and in transit, stored server-side only, and never exposed to the client application or third parties.</p>
+    <p><strong>Personal Data:</strong> TikTok usernames, profile information, affiliate performance data, financial data, and app settings. Stored encrypted, access-controlled, and handled in accordance with our Privacy Policy.</p>
+    <p><strong>Operational Data:</strong> Anonymised usage analytics and application logs used for debugging and performance monitoring. Cannot be traced back to individual users.</p>
+  </section>
+
+  <section id="access-control">
+    <div class="section-label">04</div>
+    <h2>Access Control</h2>
+    <p>We apply the principle of least privilege to all system access:</p>
+    <ul>
+      <li>Access to production systems and user data is restricted to authorised personnel only</li>
+      <li>All team members use unique credentials — shared passwords are prohibited</li>
+      <li>Multi-factor authentication (MFA) is required for all systems containing user data</li>
+      <li>Access rights are reviewed regularly and revoked immediately upon role change or departure</li>
+      <li>Production database access is logged and auditable</li>
+    </ul>
+    <p>User authentication within the App is handled exclusively via TikTok's OAuth 2.0 system. We receive and store access tokens only — we never receive or store user passwords.</p>
+  </section>
+
+  <section id="encryption">
+    <div class="section-label">05</div>
+    <h2>Encryption & Transmission Security</h2>
+    <p><strong>In transit:</strong> All data transmitted between the AffiliIQ app and our backend servers is encrypted using TLS 1.2 or higher. All API communications with TikTok are proxied through our backend — the client application never communicates directly with TikTok's APIs.</p>
+    <p><strong>At rest:</strong> All user data stored in our databases is encrypted at rest using AES-256 encryption. OAuth tokens and API credentials are encrypted using industry-standard key management practices.</p>
+    <p><strong>Key management:</strong> Encryption keys are managed through our cloud infrastructure provider's key management service. Keys are rotated regularly and access is restricted to authorised systems only.</p>
+  </section>
+
+  <section id="infrastructure">
+    <div class="section-label">06</div>
+    <h2>Infrastructure Security</h2>
+    <p>AffiliIQ's backend infrastructure is hosted on reputable cloud providers with SOC 2 Type II certification. Our infrastructure practices include:</p>
+    <ul>
+      <li>Regular automated security patching of all server infrastructure</li>
+      <li>Network segmentation to isolate production systems from development environments</li>
+      <li>Firewall rules restricting inbound traffic to authorised sources only</li>
+      <li>Automated monitoring and alerting for unusual access patterns or system anomalies</li>
+      <li>Regular backups of all user data with encrypted storage</li>
+      <li>Separate development, staging, and production environments</li>
+    </ul>
+  </section>
+
+  <section id="third-party">
+    <div class="section-label">07</div>
+    <h2>Third Party Vendors</h2>
+    <p>We carefully evaluate all third-party services before integration. Current third-party services used in the operation of AffiliIQ include:</p>
+    <ul>
+      <li><strong>TikTok API</strong> — data source for affiliate performance data, subject to TikTok's own security standards</li>
+      <li><strong>Stripe</strong> — payment processing, PCI DSS Level 1 certified</li>
+      <li><strong>Cloud infrastructure provider</strong> — server hosting, SOC 2 Type II certified</li>
+      <li><strong>Firebase Cloud Messaging</strong> — push notifications (v2, not yet active)</li>
+    </ul>
+    <p>All third-party vendors are contractually prohibited from using AffiliIQ user data for any purpose other than providing their specific service. We do not sell or share user data with third parties for advertising or commercial purposes.</p>
+  </section>
+
+  <section id="incident">
+    <div class="section-label">08</div>
+    <h2>Incident Response</h2>
+    <p>In the event of a security incident or data breach, we follow a structured response process:</p>
+    <ul>
+      <li><strong>Detection:</strong> Automated monitoring alerts are reviewed immediately upon trigger</li>
+      <li><strong>Containment:</strong> Affected systems are isolated to prevent further exposure</li>
+      <li><strong>Assessment:</strong> The scope and impact of the incident is evaluated within 24 hours</li>
+      <li><strong>Notification:</strong> Affected users are notified within 72 hours of confirmed breach discovery, in accordance with applicable data protection regulations</li>
+      <li><strong>Remediation:</strong> Root cause is identified and addressed before affected systems are restored</li>
+      <li><strong>Review:</strong> A post-incident review is conducted to prevent recurrence</li>
+    </ul>
+    <p>To report a security vulnerability or concern, please contact us at <span style="color:var(--accent2);">cs@affiliiq.com</span> with the subject line "Security Report".</p>
+  </section>
+
+  <section id="retention">
+    <div class="section-label">09</div>
+    <h2>Data Retention & Disposal</h2>
+    <p>We retain user data only for as long as necessary to provide the App's services or as required by law. Upon account deletion:</p>
+    <ul>
+      <li>Personal data and TikTok performance data are deleted within 30 days</li>
+      <li>Backups containing user data are purged within 90 days</li>
+      <li>OAuth tokens are revoked immediately upon account deletion or disconnection</li>
+      <li>Anonymised, aggregated data may be retained indefinitely as it cannot be traced to individuals</li>
+    </ul>
+    <p>All data disposal follows secure deletion practices to prevent recovery of deleted information.</p>
+  </section>
+
+  <section id="compliance">
+    <div class="section-label">10</div>
+    <h2>Compliance & Review</h2>
+    <p>This policy is reviewed and updated at least annually, or following any significant change to our systems, data handling practices, or applicable regulations.</p>
+    <p>We are committed to compliance with applicable data protection laws including the California Consumer Privacy Act (CCPA) and, where applicable, the General Data Protection Regulation (GDPR).</p>
+    <p>All personnel with access to user data are required to acknowledge and adhere to this policy. Violations may result in access revocation and appropriate action.</p>
+  </section>
+
+  <section id="contact">
+    <div class="section-label">11</div>
+    <h2>Contact</h2>
+    <p>For questions about this Information Security Policy, to report a security concern, or to exercise your data rights, please contact us:</p>
+    <div class="contact-box">
+      <p>The Pe&#241;a Home LLC</p>
+      <p>Operating AffiliIQ</p>
+      <p>United States</p>
+      <span style="color:var(--accent);font-weight:500;font-size:16px;">cs@affiliiq.com</span>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Affili<span>IQ</span></div>
+    <p>&copy; 2026 The Pe&#241;a Home LLC. All rights reserved.</p>
+  </footer>
+
+</div>
+</body>
+</html>
