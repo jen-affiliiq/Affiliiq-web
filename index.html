@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AffiliIQ — TikTok Shop Affiliate Analytics</title>
+  <meta name="description" content="AffiliIQ is the analytics and productivity app built exclusively for TikTok Shop Creator Affiliates. Track commission, analyse video performance, manage ad codes and monitor your financial data — all in one place." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a1628;
+      --surface: #0f2040;
+      --surface2: #163054;
+      --border: rgba(14,165,233,0.2);
+      --accent: #0ea5e9;
+      --accent2: #38bdf8;
+      --text: #e0f2fe;
+      --muted: #7ab8d4;
+      --green: #22c55e;
+      --amber: #f59e0b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE TEXTURE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ── GLOW ORBS ── */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb-1 { width: 600px; height: 600px; background: rgba(14,165,233,0.12); top: -200px; right: -150px; }
+    .orb-2 { width: 400px; height: 400px; background: rgba(56,189,248,0.08); bottom: 200px; left: -100px; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 40px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(10,22,40,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; color: var(--text); letter-spacing: 0; text-decoration: none; }
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+    }
+
+    /* ── SECTIONS ── */
+    section { position: relative; z-index: 1; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+    @media (max-width: 640px) { .wrap { padding: 0 20px; } }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 68px;
+    }
+
+    .hero-inner {
+      padding: 80px 0 60px;
+      max-width: 760px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(14,165,233,0.12);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent2);
+      letter-spacing: 0.5px;
+      margin-bottom: 28px;
+    }
+
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: 0;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    h1 .accent { color: var(--accent); }
+
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 580px;
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--text); }
+
+    .hero-note { font-size: 13px; color: var(--muted); margin-top: 16px; opacity: 0.7; }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 0;
+      background: rgba(14,165,233,0.04);
+    }
+
+    .stats-inner {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--accent2);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .stat-label { font-size: 13px; color: var(--muted); }
+
+    /* ── FEATURES ── */
+    .features { padding: 100px 0; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      letter-spacing: 0;
+      color: var(--text);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .section-sub {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 64px;
+      line-height: 1.7;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .feature-card:hover { border-color: rgba(14,165,233,0.4); transform: translateY(-2px); }
+    .feature-card:hover::before { opacity: 1; }
+
+    .feature-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: rgba(14,165,233,0.12);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 18px;
+    }
+
+    .feature-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .feature-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+    /* ── BUILT FOR ── */
+    .built-for {
+      padding: 80px 0;
+      background: rgba(14,165,233,0.04);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .built-for-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .built-for-inner { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    .check-list { list-style: none; margin-top: 28px; display: flex; flex-direction: column; gap: 14px; }
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+    .check-list li::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 700;
+      font-size: 14px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .quote-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+    }
+
+    .quote-text {
+      font-size: 17px;
+      color: var(--text);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .quote-attr { font-size: 13px; color: var(--muted); }
+    .quote-attr strong { color: var(--accent2); font-weight: 600; }
+
+    /* ── COMING SOON ── */
+    .coming-soon { padding: 100px 0; text-align: center; }
+
+    .waitlist-form {
+      display: flex;
+      gap: 12px;
+      max-width: 460px;
+      margin: 32px auto 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .waitlist-input {
+      flex: 1;
+      min-width: 240px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-size: 15px;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .waitlist-input::placeholder { color: var(--muted); }
+    .waitlist-input:focus { border-color: var(--accent); }
+
+    .waitlist-btn {
+      background: var(--accent);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 24px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: opacity 0.2s;
+    }
+    .waitlist-btn:hover { opacity: 0.9; }
+
+    .waitlist-note { font-size: 13px; color: var(--muted); margin-top: 14px; opacity: 0.7; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 48px 0 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .footer-brand .footer-logo span { color: var(--accent); }
+    .footer-brand p { font-size: 13px; color: var(--muted); max-width: 240px; line-height: 1.6; }
+
+    .footer-links { display: flex; gap: 48px; flex-wrap: wrap; }
+    .footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+    .footer-col a { display: block; font-size: 14px; color: var(--muted); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--text); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-bottom p { font-size: 13px; color: var(--muted); }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Affili<span>IQ</span></a>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#about">About</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="#contact">Contact</a>
+    <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        Now in development — join the waitlist
+      </div>
+
+      <h1>
+        The analytics app<br/>
+        <span class="accent">built for affiliates,</span><br/>
+        not sellers.
+      </h1>
+
+      <p class="hero-sub">
+        AffiliIQ is the first mobile analytics and productivity platform built exclusively for TikTok Shop Creator Affiliates. Track your commission goals, analyse video performance, manage ad codes, and monitor your finances — all in one place.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#waitlist" class="btn-primary">Join the Waitlist</a>
+        <a href="#features" class="btn-secondary">See Features</a>
+      </div>
+
+      <p class="hero-note">iOS and Android · Free tier available at launch</p>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-bar">
+  <div class="wrap">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <span class="stat-num">3M+</span>
+        <span class="stat-label">TikTok Shop affiliates in the US alone</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">5</span>
+        <span class="stat-label">Powerful screens built for affiliates</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">19</span>
+        <span class="stat-label">Proprietary performance formulas</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">16</span>
+        <span class="stat-label">TikTok Shop markets supported</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="wrap">
+    <div class="fade-up">
+      <div class="section-label">What's inside</div>
+      <h2>Everything an affiliate needs.<br/>Nothing they don't.</h2>
+      <p class="section-sub">AffiliIQ is designed around how affiliates actually work — not how sellers think you do.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-icon">📊</div>
+        <div class="feature-title">Commission Goal Calculator</div>
+        <div class="feature-desc">Set your monthly commission goal and instantly see how many videos you need to post — based on your own historical performance data, with best, average, and worst case projections.</div>
+      </div>
+
+      <div class="feature-card fade-up">
+        <div class="feature-icon">🎬</div>
+        <div class="feature-title">Video Analytics Intelligence</div>
+        <div class="feature-desc">Rank every video you've posted by commission, views, CTR, or conversion rate. Spot your best performers and understand what's driving revenue with AI-powered insights.</div>
+      </div>
+
+      <div class="feature-card fade-up">
+        <div class="feature-icon">🔗</div>
+        <div class="feature-title">Ad Code Manager</div>
+        <div class="feature-desc">Track all your active affiliate links and ad codes across every shop. Export codes, draft professional outreach messages to brands, and never miss an expiry again.</div>
+      </div>
+
+      <div class="feature-card fade-up">
+        <div class="feature-icon">💰</div>
+        <div class="feature-title">Financial Dashboard</div>
+        <div class="feature-desc">See your full withdrawal history, track your orders and samples, monitor commission lock dates, and export your financial data for reporting — with full date range filtering.</div>
+      </div>
+
+      <div class="feature-card fade-up">
+        <div class="feature-icon">⚠️</div>
+        <div class="feature-title">Dead Link Detection</div>
+        <div class="feature-desc">Automatically identify videos with broken affiliate links — whether the product is out of stock, delisted, or expired. See the revenue at risk and find replacement products instantly.</div>
+      </div>
+
+      <div class="feature-card fade-up">
+        <div class="feature-icon">📈</div>
+        <div class="feature-title">Performance Archive</div>
+        <div class="feature-desc">View your full month-by-month performance history with interactive charts. Filter by date range, track trends, and add historical data manually for periods before you connected TikTok.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUILT FOR -->
+<section class="built-for" id="about">
+  <div class="wrap">
+    <div class="built-for-inner">
+      <div class="fade-up">
+        <div class="section-label">Built by affiliates</div>
+        <h2>We know because we are affiliates.</h2>
+        <p style="color:var(--muted);font-size:16px;line-height:1.7;margin-top:12px;">AffiliIQ was built by an active TikTok Shop affiliate who couldn't find a tool that actually understood the job. Every formula, every screen, and every feature comes from real affiliate work.</p>
+        <ul class="check-list">
+          <li>Commission tracking built around how TikTok actually pays you</li>
+          <li>Goal calculator that accounts for your real posting patterns</li>
+          <li>Ad code management designed for multi-shop affiliates</li>
+          <li>Financial reporting ready for tax season</li>
+          <li>Dead link detection that protects your ongoing revenue</li>
+          <li>Sync that respects your manual data edits</li>
+        </ul>
+      </div>
+
+      <div class="fade-up">
+        <div class="quote-card">
+          <p class="quote-text">"There's no tool on the market built for affiliates. FastMoss is for sellers. TikTok's own dashboard is basic. We built what we needed and decided to share it."</p>
+          <div class="quote-attr">
+            <strong>Jen Hewitt</strong> — Co-Founder & CEO, AffiliIQ<br/>
+            <span>TikTok Shop affiliate · Corona, CA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAITLIST -->
+<section class="coming-soon" id="waitlist">
+  <div class="wrap">
+    <div class="fade-up">
+      <div class="section-label">Early access</div>
+      <h2>Be first to know<br/>when we launch.</h2>
+      <p style="color:var(--muted);font-size:17px;margin-top:12px;">AffiliIQ is currently in development. Join the waitlist and we'll email you the moment early access opens.</p>
+
+      <form class="waitlist-form" action="https://formspree.io/f/mvzvpwre" method="POST" onsubmit="handleWaitlist(event)">
+        <input type="email" name="email" class="waitlist-input" placeholder="your@email.com" required />
+        <button type="submit" class="waitlist-btn">Join Waitlist</button>
+      </form>
+      <p class="waitlist-note">No spam. Unsubscribe any time. We'll only contact you about AffiliIQ.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">Affili<span>IQ</span></div>
+        <p>TikTok Shop affiliate analytics, built by affiliates for affiliates.</p>
+        <p style="margin-top:10px;font-size:13px;color:var(--muted);">Operated by The Peña Home LLC<br/>Corona, CA 92883, United States</p>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="#features">Features</a>
+          <a href="#waitlist">Join Waitlist</a>
+          <a href="#about">About</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="/cdn-cgi/l/email-protection#6a09192a0b0c0c030603031b44090507"><span class="__cf_email__" data-cfemail="3d5e4e7d5c5b5b545154544c135e5250">[email&#160;protected]</span></a>
+          <a href="https://tiktok.com/@affiliiq" target="_blank">TikTok</a>
+          <a href="https://instagram.com/affiliiq" target="_blank">Instagram</a>
+          <a href="https://x.com/affiliiq" target="_blank">X (Twitter)</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 The Peña Home LLC. All rights reserved.</p>
+      <p>Made with ♥ by affiliates, for affiliates.</p>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Fade in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Waitlist form
+  async function handleWaitlist(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('button');
+    const input = form.querySelector('input');
+    btn.textContent = 'Submitting...';
+    btn.disabled = true;
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        btn.textContent = "You're on the list!";
+        btn.style.background = '#22c55e';
+        input.value = '';
+        input.disabled = true;
+      } else {
+        btn.textContent = 'Try again';
+        btn.disabled = false;
+      }
+    } catch(err) {
+      btn.textContent = 'Try again';
+      btn.disabled = false;
+    }
+  }
+  // end waitlist
