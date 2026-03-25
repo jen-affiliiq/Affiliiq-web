@@ -441,7 +441,7 @@
     .footer-bottom p { font-size: 13px; color: var(--muted); }
 
     /* ── ANIMATIONS ── */
-    .fade-up-disabled {
+    .fade-up {
       opacity: 1;
       transform: translateY(0);
       transition: opacity 0.6s ease, transform 0.6s ease;
@@ -668,7 +668,7 @@
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  document.querySelectorAll('.fade-up-gone').forEach(el => observer.observe(el));
 
   // Waitlist form
   async function handleWaitlist(e) {
