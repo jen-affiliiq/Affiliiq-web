@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — AffiliIQ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a1628;
+      --surface: #0f2040;
+      --border: rgba(14,165,233,0.2);
+      --accent: #0ea5e9;
+      --accent2: #38bdf8;
+      --text: #e0f2fe;
+      --muted: #7ab8d4;
+      --soft: rgba(14,165,233,0.08);
+      --table-alt: rgba(14,165,233,0.04);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.75; font-size: 16px; }
+    .wrap { max-width: 740px; margin: 0 auto; padding: 0 24px 80px; }
+    header { padding: 52px 0 44px; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+    .logo { font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 700; color: var(--text); letter-spacing: 0; margin-bottom: 24px; display: inline-block; text-decoration: none; }
+    .logo span { color: var(--accent); }
+    h1 { font-family: 'Syne', sans-serif; font-size: clamp(24px, 4vw, 34px); font-weight: 700; line-height: 1.2; letter-spacing: 0; color: var(--text); margin-bottom: 12px; }
+    .meta { display: flex; gap: 8px 24px; flex-wrap: wrap; margin-top: 18px; }
+    .meta-item { font-size: 13px; color: var(--muted); }
+    .meta-item span { color: var(--accent2); font-weight: 500; }
+    .toc { background: var(--soft); border: 1px solid var(--border); border-radius: 12px; padding: 22px 26px; margin-bottom: 48px; }
+    .toc-title { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .toc ol { list-style: none; counter-reset: toc; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; }
+    @media (max-width: 520px) { .toc ol { grid-template-columns: 1fr; } }
+    .toc li { counter-increment: toc; font-size: 14px; }
+    .toc li::before { content: counter(toc, decimal-leading-zero) ". "; color: var(--accent); font-weight: 600; font-size: 12px; margin-right: 3px; }
+    .toc a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
+    .toc a:hover { color: var(--accent2); }
+    section { margin-bottom: 48px; scroll-margin-top: 24px; }
+    .section-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    h2 { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: 0; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    p { color: var(--muted); margin-bottom: 14px; font-size: 15px; font-weight: 400; line-height: 1.75; }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--text); font-weight: 600; }
+    ul { margin: 12px 0 14px 20px; }
+    ul li { color: var(--muted); font-size: 15px; line-height: 1.75; margin-bottom: 6px; }
+    .highlight { background: var(--soft); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; padding: 14px 18px; margin: 18px 0; }
+    .highlight p { font-size: 14px; color: var(--muted); margin-bottom: 0; }
+    .contact-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px 28px; margin-top: 16px; }
+    .contact-box p { margin-bottom: 5px; font-size: 15px; color: var(--muted); }
+    .contact-box p:first-child { color: var(--text); font-weight: 600; }
+    .contact-email { display: inline-block; margin-top: 10px; color: var(--accent); font-weight: 500; font-size: 16px; text-decoration: none; border-bottom: 2px solid rgba(14,165,233,0.3); padding-bottom: 1px; }
+    .contact-email:hover { color: var(--accent2); border-color: var(--accent); }
+    footer { border-top: 1px solid var(--border); padding-top: 28px; margin-top: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    footer p { font-size: 13px; color: var(--muted); margin: 0; }
+    .footer-logo { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; color: var(--text); letter-spacing: 0; }
+    .footer-logo span { color: var(--accent); }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a href="/" class="logo">Affili<span>IQ</span></a>
+    <h1>Terms of Service</h1>
+    <p style="color:var(--muted);font-size:15px;margin-top:6px;">Please read these terms carefully before using AffiliIQ.</p>
+    <div class="meta">
+      <div class="meta-item">Effective date <span>March 12, 2026</span></div>
+      <div class="meta-item">&middot; Last updated <span>March 12, 2026</span></div>
+      <div class="meta-item">&middot; Operated by <span>The Pe&#241;a Home LLC</span></div>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Table of contents">
+    <div class="toc-title">Contents</div>
+    <ol>
+      <li><a href="#acceptance">Acceptance of Terms</a></li>
+      <li><a href="#description">Description of Service</a></li>
+      <li><a href="#eligibility">Eligibility</a></li>
+      <li><a href="#account">Your Account</a></li>
+      <li><a href="#tiktok">TikTok Integration</a></li>
+      <li><a href="#acceptable-use">Acceptable Use</a></li>
+      <li><a href="#subscriptions">Subscriptions & Billing</a></li>
+      <li><a href="#data">Your Data</a></li>
+      <li><a href="#ip">Intellectual Property</a></li>
+      <li><a href="#disclaimers">Disclaimers</a></li>
+      <li><a href="#liability">Limitation of Liability</a></li>
+      <li><a href="#termination">Termination</a></li>
+      <li><a href="#changes">Changes to Terms</a></li>
+      <li><a href="#governing">Governing Law</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ol>
+  </nav>
+
+  <section id="acceptance">
+    <div class="section-label">01</div>
+    <h2>Acceptance of Terms</h2>
+    <p>By downloading, installing, or using the AffiliIQ mobile application ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.</p>
+    <p>These Terms constitute a legally binding agreement between you and <strong>The Pe&#241;a Home LLC</strong>, a California limited liability company ("we", "us", "our"). By using AffiliIQ you confirm that you have read, understood, and agree to these Terms and our <a href="privacy.html" style="color:var(--accent2);">Privacy Policy</a>.</p>
+  </section>
+
+  <section id="description">
+    <div class="section-label">02</div>
+    <h2>Description of Service</h2>
+    <p>AffiliIQ is a mobile analytics and productivity application designed for TikTok Shop Creator Affiliates. The App provides features including but not limited to:</p>
+    <ul>
+      <li>Commission goal tracking and projections</li>
+      <li>Video performance analytics</li>
+      <li>Affiliate link and ad code management</li>
+      <li>Financial data tracking and reporting</li>
+      <li>Dead link detection and replacement suggestions</li>
+      <li>Historical performance archive and data entry</li>
+    </ul>
+    <p>The App connects to TikTok's APIs to retrieve your affiliate performance data. The accuracy and availability of data depends on TikTok's API services, which are outside our control.</p>
+  </section>
+
+  <section id="eligibility">
+    <div class="section-label">03</div>
+    <h2>Eligibility</h2>
+    <p>To use AffiliIQ you must:</p>
+    <ul>
+      <li>Be at least 18 years of age</li>
+      <li>Have a valid TikTok Shop Creator Affiliate account</li>
+      <li>Be located in a country where TikTok Shop is available</li>
+      <li>Have the legal capacity to enter into a binding agreement</li>
+    </ul>
+    <p>By using the App you represent and warrant that you meet all of the above eligibility requirements.</p>
+  </section>
+
+  <section id="account">
+    <div class="section-label">04</div>
+    <h2>Your Account</h2>
+    <p>Access to AffiliIQ is authenticated via TikTok's OAuth 2.0 system. You are responsible for maintaining the security of your TikTok account credentials. We will never ask for your TikTok password.</p>
+    <p>You are responsible for all activity that occurs under your account. You agree to notify us immediately at <a href="mailto:cs@affiliiq.com" style="color:var(--accent2);">cs@affiliiq.com</a> if you become aware of any unauthorised use of your account.</p>
+    <p>We reserve the right to suspend or terminate accounts that violate these Terms or that we reasonably believe are being used fraudulently or abusively.</p>
+  </section>
+
+  <section id="tiktok">
+    <div class="section-label">05</div>
+    <h2>TikTok Integration</h2>
+    <p>AffiliIQ accesses TikTok's APIs on your behalf to retrieve your affiliate performance data. By connecting your TikTok account you authorise us to access the data scopes you approve during the OAuth flow.</p>
+    <p>Your use of TikTok's platform is also subject to TikTok's own Terms of Service and Privacy Policy. We are not affiliated with, endorsed by, or sponsored by TikTok or its parent company ByteDance.</p>
+    <p>TikTok may change, restrict, or discontinue API access at any time. We cannot guarantee uninterrupted access to your TikTok data and accept no liability for disruptions caused by changes to TikTok's platform or API policies.</p>
+    <div class="highlight">
+      <p><strong>Important:</strong> You can revoke AffiliIQ's access to your TikTok data at any time through TikTok's connected apps settings. Revoking access will prevent data syncing but will not delete data already stored in AffiliIQ.</p>
+    </div>
+  </section>
+
+  <section id="acceptable-use">
+    <div class="section-label">06</div>
+    <h2>Acceptable Use</h2>
+    <p>You agree not to use AffiliIQ to:</p>
+    <ul>
+      <li>Violate any applicable law or regulation</li>
+      <li>Infringe the intellectual property rights of any third party</li>
+      <li>Attempt to gain unauthorised access to our systems or other users' accounts</li>
+      <li>Reverse engineer, decompile, or disassemble any part of the App</li>
+      <li>Use the App for any commercial purpose other than managing your own affiliate activities</li>
+      <li>Transmit malware, viruses, or any other harmful code</li>
+      <li>Scrape, crawl, or extract data from the App in an automated manner</li>
+      <li>Misrepresent your identity or affiliation with any person or entity</li>
+    </ul>
+    <p>We reserve the right to investigate and take appropriate action against anyone who, in our sole discretion, violates this provision.</p>
+  </section>
+
+  <section id="subscriptions">
+    <div class="section-label">07</div>
+    <h2>Subscriptions & Billing</h2>
+    <p>AffiliIQ will offer both a free tier and paid subscription plans. Specific pricing and features for each tier will be published at the time of launch.</p>
+    <p><strong>Free tier:</strong> Provides access to core features with certain limitations. No payment information is required.</p>
+    <p><strong>Paid plans:</strong> Unlock additional features and usage limits. Subscriptions are billed on a recurring basis (monthly or annual) through Stripe, our payment processor. By subscribing you authorise us to charge your payment method on a recurring basis until you cancel.</p>
+    <p><strong>Cancellation:</strong> You may cancel your subscription at any time. Cancellation takes effect at the end of the current billing period. We do not offer refunds for partial billing periods except where required by applicable law.</p>
+    <p><strong>Price changes:</strong> We reserve the right to change subscription prices. We will provide at least 30 days notice before any price increase takes effect.</p>
+  </section>
+
+  <section id="data">
+    <div class="section-label">08</div>
+    <h2>Your Data</h2>
+    <p>You retain ownership of all data you provide to or generate within AffiliIQ, including manually entered historical data and any edits you make to TikTok-synced data.</p>
+    <p>By using the App you grant us a limited licence to store, process, and display your data solely for the purpose of providing the App's features to you. We do not claim ownership of your data.</p>
+    <p>Please refer to our <a href="privacy.html" style="color:var(--accent2);">Privacy Policy</a> for full details on how we collect, use, store, and protect your data.</p>
+  </section>
+
+  <section id="ip">
+    <div class="section-label">09</div>
+    <h2>Intellectual Property</h2>
+    <p>AffiliIQ, including its name, logo, design, code, features, formulas, and content, is owned by The Pe&#241;a Home LLC and protected by applicable intellectual property laws.</p>
+    <p>Nothing in these Terms grants you any right to use our trademarks, logos, or other proprietary materials without our prior written consent.</p>
+    <p>You may not copy, modify, distribute, sell, or lease any part of the App or its underlying code without our express written permission.</p>
+  </section>
+
+  <section id="disclaimers">
+    <div class="section-label">10</div>
+    <h2>Disclaimers</h2>
+    <p>AffiliIQ is provided on an "as is" and "as available" basis without warranties of any kind, either express or implied.</p>
+    <p><strong>No financial advice:</strong> The App's commission projections, goal calculations, and financial data are provided for informational purposes only. They do not constitute financial, tax, or investment advice. You should consult a qualified professional for advice specific to your circumstances.</p>
+    <p><strong>Data accuracy:</strong> We rely on TikTok's API for performance data. We cannot guarantee the accuracy, completeness, or timeliness of data provided by TikTok's systems.</p>
+    <p><strong>Service availability:</strong> We do not warrant that the App will be uninterrupted, error-free, or free from viruses or other harmful components.</p>
+  </section>
+
+  <section id="liability">
+    <div class="section-label">11</div>
+    <h2>Limitation of Liability</h2>
+    <p>To the maximum extent permitted by applicable law, The Pe&#241;a Home LLC and its officers, directors, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or relating to your use of AffiliIQ.</p>
+    <p>Our total liability to you for any claims arising out of or relating to these Terms or the App shall not exceed the amount you paid us in the twelve months preceding the claim, or $100 USD if you have not made any payments.</p>
+    <p>Some jurisdictions do not allow the exclusion or limitation of certain damages, so the above limitations may not apply to you.</p>
+  </section>
+
+  <section id="termination">
+    <div class="section-label">12</div>
+    <h2>Termination</h2>
+    <p>You may stop using AffiliIQ at any time by deleting the App and revoking TikTok API access. To request deletion of your account and data, contact us at <a href="mailto:cs@affiliiq.com" style="color:var(--accent2);">cs@affiliiq.com</a>.</p>
+    <p>We may suspend or terminate your access to the App at any time, with or without notice, if we reasonably believe you have violated these Terms or if we discontinue the App.</p>
+    <p>Upon termination, all licences granted to you under these Terms will immediately cease. Provisions that by their nature should survive termination will survive, including ownership provisions, warranty disclaimers, and limitations of liability.</p>
+  </section>
+
+  <section id="changes">
+    <div class="section-label">13</div>
+    <h2>Changes to Terms</h2>
+    <p>We may update these Terms from time to time. When we make material changes we will update the "Last updated" date at the top of this page and notify you via the App or by email where appropriate.</p>
+    <p>Your continued use of the App after any changes constitutes your acceptance of the updated Terms. If you do not agree to the updated Terms, you must stop using the App.</p>
+  </section>
+
+  <section id="governing">
+    <div class="section-label">14</div>
+    <h2>Governing Law</h2>
+    <p>These Terms are governed by and construed in accordance with the laws of the State of California, United States, without regard to its conflict of law provisions.</p>
+    <p>Any disputes arising out of or relating to these Terms or your use of AffiliIQ shall be subject to the exclusive jurisdiction of the courts located in Riverside County, California.</p>
+    <p><strong>California residents:</strong> Under California Civil Code Section 1789.3, California users are entitled to the following consumer rights notice: The Complaint Assistance Unit of the Division of Consumer Services of the California Department of Consumer Affairs may be contacted in writing at 1625 North Market Blvd., Suite N 112, Sacramento, CA 95834, or by telephone at (916) 445-1254.</p>
+  </section>
+
+  <section id="contact">
+    <div class="section-label">15</div>
+    <h2>Contact Us</h2>
+    <p>If you have any questions about these Terms of Service, please contact us:</p>
+    <div class="contact-box">
+      <p>The Pe&#241;a Home LLC</p>
+      <p>Operating AffiliIQ</p>
+            <p>United States</p>
+      <a href="mailto:cs@affiliiq.com" class="contact-email">cs@affiliiq.com</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Affili<span>IQ</span></div>
+    <p>&copy; 2026 The Pe&#241;a Home LLC. All rights reserved.</p>
+  </footer>
+
+</div>
+</body>
+</html>
