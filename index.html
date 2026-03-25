@@ -270,7 +270,7 @@
       top: 0; left: 0; right: 0;
       height: 2px;
       background: linear-gradient(90deg, var(--accent), transparent);
-      opacity: 0;
+      opacity: 1;
       transition: opacity 0.3s;
     }
 
@@ -441,9 +441,9 @@
     .footer-bottom p { font-size: 13px; color: var(--muted); }
 
     /* ── ANIMATIONS ── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(24px);
+    .fade-up-disabled {
+      opacity: 1;
+      transform: translateY(0);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
     .fade-up.visible {
@@ -611,7 +611,7 @@
       <p style="color:var(--muted);font-size:17px;margin-top:12px;">AffiliIQ is currently in development. Join the waitlist and we'll email you the moment early access opens.</p>
 
       <form class="waitlist-form" action="https://formspree.io/f/mvzvpwre" method="POST" onsubmit="handleWaitlist(event)">
-        <input type="email" name="email" class="waitlist-input" placeholder="your@email.com" required />
+        <input type="text" name="first_name" class="waitlist-input" placeholder="First name" required style="flex:1;min-width:160px;" /><input type="text" name="tiktok_handle" class="waitlist-input" placeholder="@tiktokhandle" style="flex:1;min-width:160px;margin-top:12px;" /><input type="email" name="email" class="waitlist-input" placeholder="your@email.com" required style="flex:2;min-width:240px;margin-top:12px;" />
         <button type="submit" class="waitlist-btn">Join Waitlist</button>
       </form>
       <p class="waitlist-note">No spam. Unsubscribe any time. We'll only contact you about AffiliIQ.</p>
